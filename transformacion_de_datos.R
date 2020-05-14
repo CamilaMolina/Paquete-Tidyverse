@@ -944,8 +944,9 @@ popular_dest %>%
   select(year:day, dest, arr_delay, prop_delay)
 
 #esto funciona mejor sobre agrupaciones previas.
-#es mejor con group_by con summarise función 
+#es mejor con group_by con summarise función.
 
+12344454532211|||234|2134411||1|
 ####################### EJERCICIOS############################
 Preguntas de esta tarea
 #Intenta describir con frases entendibles el conjunto de vuelos 
