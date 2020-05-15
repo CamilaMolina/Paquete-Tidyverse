@@ -946,9 +946,17 @@ popular_dest %>%
 #esto funciona mejor sobre agrupaciones previas.
 #es mejor con group_by con summarise función.
 
-12344454532211|||234|2134411||1|
+#################### WHEN_CASE ########################
+nombres %>% 
+  filter(nombre=="Sara" | nombre=="Sarah") %>% 
+  group_by(anio) %>% 
+  summarise(total_saras = sum(n),
+            prop_saras  = sum(prop)) %>% 
+  mutate(boom = case_when(prop_saras <= 0.012 ~ "No Boom",
+                          prop_saras > 0.012 ~ "Sara Boom")) 
+
 ####################### EJERCICIOS############################
-Preguntas de esta tarea
+#Preguntas de esta tarea
 #Intenta describir con frases entendibles el conjunto de vuelos 
 #retrasados. Intenta dar afirmaciones como por ejemplo:
   
@@ -1045,7 +1053,7 @@ Preguntas de esta tarea
 #retraso de más de una hora. Valora entonces la fiabilidad del 
 #avión o de la compañía aérea asociada al mismo.
 
-##################### ANÁLISIS EXPLORATORIO DE LOS DATOS<#############
+##################### ANÁLISIS EXPLORATORIO DE LOS DATOS #############
 #David Cox. no hay preguntas rutinarias en estadística, sino preguntas 
 #acerca de las rutinas estadísticas. 
 #un estadístico nunca repite su trabajo dos días o dos veces, ¿las rutinas estadísticas
@@ -1059,11 +1067,11 @@ Preguntas de esta tarea
 #es muy difícil. A medida que se va investigando se va revelando con 
 #los datos.
 
-Preguntas útiles en análisis exploratorio
-1.- Que tipo de variación sufren las variables o los datos
-2.- Que tipo de covariación sufren las covariables
+#Preguntas útiles en análisis exploratorio
+#1.- Que tipo de variación sufren las variables o los datos
+#2.- Que tipo de covariación sufren las covariables
 
-¿Como varian los datos, son todas constante, cambian mucho o poco?
+#¿Como varian los datos, son todas constante, cambian mucho o poco?
 
 
 
