@@ -4,6 +4,7 @@
 # diseños experimentales)
 #"NO HAY PREGUNTAS RUTINARIAS EN ESTADÍSTICA, SINO PREGUNTAS ACERCA DE LAS RUTINAS ESTADÍSTICA"
 # EN ESTADÍSTICA NO EXISTE UNA RUTINA, SINO LAS RUTINAS ESTADÍSTICAS FUNCIONAN O NO
+<<<<<<< HEAD
 
 # ¿ Qué tipos de variaciones sufren las variables?
 # ¿Qué tipó de covariaciones sufren las variables?
@@ -19,3 +20,15 @@
 ################## VISUALIZACIÓN VARIABLE CONTINUA O CATEGÓRICA ############
 
 #Variable categórica
+||||||| 051f7a5
+||||||| 714bf05
+=======
+################### ANÁLISIS EXPLORATORIO DE DATOS ######################
+# David Cox: regresión de cox: análisis de la supervicencia (procesos estocásticos,
+# diseños experimentales)
+#"NO HAY PREGUNTAS RUTINARIAS EN ESTADÍSTICA, SINO PREGUNTAS ACERCA DE LAS RUTINAS ESTADÍSTICA"
+# EN ESTADÍSTICA NO EXISTE UNA RUTINA, SINO LAS RUTINAS ESTADÍSTICAS FUNCIONAN O NO
+>>>>>>> 8ec86886a752784323153b5af8aec32ec4aba022
+=======
+
+>>>>>>> 60736d47f3c6cbe0d1d2426eecaad0a6b046afdd
