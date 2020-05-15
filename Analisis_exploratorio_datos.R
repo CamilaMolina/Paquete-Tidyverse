@@ -18,17 +18,13 @@
 # tiene su columna, y cada observación su fila.
 
 ################## VISUALIZACIÓN VARIABLE CONTINUA O CATEGÓRICA ############
+library(tidyverse)
+#Variable categórica o discreta: factor o vector de caracteres
+ggplot(data=diamonds) +
+  geom_bar(mapping = aes (x=cut))
 
-#Variable categórica
-||||||| 051f7a5
-||||||| 714bf05
-=======
-################### ANÁLISIS EXPLORATORIO DE DATOS ######################
-# David Cox: regresión de cox: análisis de la supervicencia (procesos estocásticos,
-# diseños experimentales)
-#"NO HAY PREGUNTAS RUTINARIAS EN ESTADÍSTICA, SINO PREGUNTAS ACERCA DE LAS RUTINAS ESTADÍSTICA"
-# EN ESTADÍSTICA NO EXISTE UNA RUTINA, SINO LAS RUTINAS ESTADÍSTICAS FUNCIONAN O NO
->>>>>>> 8ec86886a752784323153b5af8aec32ec4aba022
-=======
+diamonds %>% 
+  count(cut)
 
->>>>>>> 60736d47f3c6cbe0d1d2426eecaad0a6b046afdd
+#variable continua: conjunto infinito de valores ordenados
+
