@@ -98,3 +98,22 @@ y <- tribble(
 
 x %>% 
   inner_join(y, by="key")
+
+##################outer_join################################
+#el outer join sobrepasa el problema de los datos no repetidos
+#con tres tipos:
+
+# * left join: se queda con todas las observaciones que aparecen en el primer dataset
+#independientemente si aparecen o no en el segundo. 
+
+# * right join: se queda con todas las observaciones que aparecen en el segundo dataset
+#independientemente si aparecen o no en el primero. 
+
+# * full join: que se queda con las observaciones tanto del primero como del segundo dataset
+
+x %>% left_join(y, by="key")
+x %>% right_join(y, by="key")
+x %>% full_join(y, by="key")
+
+############problemas de las claves duplicadas#############
+
