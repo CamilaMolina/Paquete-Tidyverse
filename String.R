@@ -1,5 +1,5 @@
 ############## String, factores y las fechas#############
-#aprenderemos a usar las regeps para descubrir patrones en strings
+#aprenderemos a usar las regexps para descubrir patrones en strings
 #es un poco difíciles, pero es muy útil saber porque se utiliza en muchos lenguajes.
 
 library(tidyverse)
@@ -79,3 +79,39 @@ str_c(
 #si queremos copapsar un vector de string en un solo string
 
 str_c(c("a", "b", "c"), collapse = "'")
+
+#si queremos hacer subconjutos de un string
+#tiene un argumento star y otro end
+
+x <- c("Manzana", "Peras", "Limones", "Plátanos")
+str_sub(x, 1,3)
+str_sub(x, -3,-1)
+str_sub("x", 1,8)
+
+str_sub(x, 1,1) <- str_to_lower(str_sub(x,1,1))
+x
+
+str_to_upper(x)
+
+str_to_title(x)
+
+#en el caso de idiomas diferentes R adpta los cambios 
+str_to_upper("i", locale = "tr")#tr es idioma turco
+
+#hay países en donde el orden es diferente funciones para ordenar string del sistema
+
+str_sort(x, locale = "es")
+
+str_sort(c("apple", "banana", "eggplant"), locale = "how")
+
+str_order(x, locale = "how")
+
+############################ REGEXP#################
+#Expresiones regulares
+
+#str_view()
+#str_view_all()
+
+
+
+
