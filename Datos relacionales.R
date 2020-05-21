@@ -187,3 +187,81 @@ flights_new %>% left_join(planes, by = 'tailnum')#especificar el no mbre igual d
 airports
 flights_new %>% left_join (airports, by = c("dest" = "faa"))
 flights_new %>% left_join (airports, by = c("origin" = "faa"))
+
+#################funciones para SQL MERGE#####################
+
+#Funcion merge
+?base::merge
+#    dplyr           <->        base
+#inner_join (x, y)   <-> merge (x, y)
+#left_join  (x, y)   <-> merge (x, y, all.x = TRUE)
+#right_join (x, y)   <-> merge (x, y, all.y = TRUE)
+#full_join  (x, y)   <-> merge (z, y, all.x = TRUE, all.y = TRUE)
+
+#    dplyr                   <->            SQL
+#inner_join (x, y, by ="z")  <-> SELECT * FROM x [INNER] JOIN y USING (z)
+#                                SELECT * FROM x [INNER] JOIN y ON x.key = y.key
+#left_join  (x, y) by ="z")  <-> SELECT * FROM x LEFT [OUTER] JOIN y USING (z)
+#                                SELECT * FROM x LEFT [OUTER] JOIN y ON x.key = y.key
+#right_join (x, y) by ="z")  <-> SELECT * FROM x RIGHT [OUTER] JOIN y USING (z)
+#                                SELECT * FROM x RIGHT [OUTER] JOIN y ON x.key = y.key
+#full_join  (x, y) by ="z")  <-> SELECT * FROM x FULL [OUTER] JOIN y USING (z)
+#                                SELECT * FROM x FULL [OUTER] JOIN y ON x.key = y.key
+
+################ FILTERING JOIN###############
+
+# semi_join(x,y) -> se queda con las observaciones de x que tienen correspondencia en Y
+# anti_join(x,y) -> elimina todas las observaciones de x que tienen correspondencia en Y
+
+#obtener el top ten de los destinos mas visitados
+
+flights %>% 
+  count(dest, sort=TRUE) %>% 
+  head(10)
+
+#para cada vuelo cuales de ellos fueron a uno o mas de estos destinosflights %>% 
+flights %>% 
+  count(dest, sort=TRUE) %>% 
+  head(10) -> top_dest
+
+flights %>%
+  filter(dest %in% top_dest$dest)
+
+#imaginar que hemos encontrado se eleva el promedio del retraso
+# como construir un filtro para encontrar los vuelos que se han retrasado
+#podemos ocupar un semi_join
+
+flights %>% semi_join(top_dest)
+
+#cuantos de los vuelos de aeropuerto de EEUU no tienen ninguno de los aviones que estan en la lista de aviones
+#con anti_join de dplr
+
+flights %>% anti_join(planes, by ="tailnum") %>% 
+  count (tailnum, sort = TRUE)
+
+################## OPERACIONES ENTRE CONJUNTOS #######################
+
+# * intersect (x,y): observaciones comunes entre x e y (x intersección y)(deben ser iguales iguales)
+# * union     (x,y): observaciones únicas en x e y     (x unión y)
+# * setdiff   (x,y): observaciones en x pero no en y   (x - y= x intersección y)
+
+x <-  tribble(
+  ~a, ~b,
+   1, 1,
+   2, 1,
+)
+
+y <- tribble(
+  ~a, ~b,
+   1,  1,
+   1,  2,
+)
+
+intersect(x, y)
+union(x,y)
+setdiff(x,y)
+setdiff(y, x)
+
+
+
+
