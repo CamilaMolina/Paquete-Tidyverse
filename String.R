@@ -288,7 +288,7 @@ df %>%
     vowels = str_count(word, "[aeiou]"),
     consonants = str_count(word, "[^aeiou]")
   )
-#el str_count no tiene overleaping
+#el str_count no tiene overlapping
 
 str_count("abababababa", "aba")
 str_view("abababababa", "aba")
