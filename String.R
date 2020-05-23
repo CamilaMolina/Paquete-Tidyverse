@@ -107,11 +107,44 @@ str_sort(c("apple", "banana", "eggplant"), locale = "how")
 str_order(x, locale = "how")
 
 ############################ REGEXP#################
-#Expresiones regulares
+#Expresiones regulares: nos ayuda a escribir un patrón dentro de un string
 
 #str_view()
 #str_view_all()
+install.packages("htmlwidgets")
+library(htmlwidgets)
+x <- c("manzana", "banana", "pera", "pomelo")
 
 
+#localizar la existencia exacta de un patrón dentro de la lista
+
+str_view(x, "an")
+str_view(x, ".a")
+str_view(x, "o")
+
+str_view(x, ".a.")
+
+#para crear una expresión regular como un punto se hace con barra barra
+#las barras son caracteres escapantes
+
+dot <-"\\."
+writeLines(dot)
+str_view(c("abc", "a.c", "bc."), "a\\.c")
+
+backslash <-  "\\\\"
+writeLines(backslash)
+str_view("a\\b", "\\\\")
+
+#el string es útil utilizarlo con anclas
+# ^ -> inicio del string
+# $ -> final del string
+
+str_view(x, "^p")
+str_view(x, "a$")
+
+y <- c("tarta de manzana", "manzana", "manzana al horno", "pastel de manzana")
+
+str_view(y, "manzana")
+str_view(y, "^manzana$")#encuentra única y exclusivamente la palabra manzana
 
 
