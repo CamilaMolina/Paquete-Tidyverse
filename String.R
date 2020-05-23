@@ -193,7 +193,7 @@ str_view(x, "C[LX]+")
 "ba(na)+"
 
 
-# Número de veces que busco determinada silava, palabra o letra -----------
+# Número de veces que busco determinada silaba, palabra o letra -----------
 
 #{n}-> exactamente n repeticiones
 #{n,} -> n o más repeticiones
